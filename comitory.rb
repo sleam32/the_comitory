@@ -17,8 +17,6 @@ if command == "add"
 	puts clear_screen
 	i = 1
 	until i > 5
-	# flag = true
-	# while flag
 	puts "Want to add a comic to your collection? [y/n]:"
 	response = $stdin.gets.chomp
 	case response
@@ -32,10 +30,7 @@ if command == "add"
 	puts "New Comic Added!"
 	response = $stdin.gets.chomp
 	i += 1
-# end
-
 	when 'n'
-	# # flag = false
 		puts "Ok, what would you like to do?"
 		puts ACTIONS
 	# puts "Please enter Publisher:"
