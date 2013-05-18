@@ -23,6 +23,14 @@ db_namespace = namespace :db do
     ActiveRecord::Migrator.migrate("db/migrate/")
     db_namespace["schema:dump"].invoke
   end
+
+  desc 'Rolls the schema back to the previous version (specify steps w/ STEP=n).'
+  task :rollback do
+    step = ENV['STEP'] ? ENV['STEP'].to_i : 1
+    ActiveRecord::Migrator.rollback(ActiveRecord::Migrator.migrations_paths, step)
+    db_namespace["schema:dump"].invoke
+  end
+  
   namespace :schema do
     desc 'Create a db/schema.rb file that can be portably used against any DB supported by AR'
     task :dump do

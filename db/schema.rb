@@ -11,10 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 1) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "comic_books", :force => true do |t|
-    t.string "title"
+    t.string  "title"
+    t.string  "publisher"
+    t.integer "issue_number"
   end
 
 end
