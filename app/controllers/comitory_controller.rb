@@ -1,5 +1,5 @@
 class ComitoryController
-  attr_accessor :params
+  attr_accessor :params, :remove_comic, :quit_all, :add_comic, :list_comic
   ACTIONS = "Actions: list, add, remove, quit"
 
   def initialize params
@@ -40,8 +40,8 @@ def remove_comic
   clear_screen = "\e[H\e[2J"
   puts clear_screen
   puts "Enter a comic you want to remove."
-  matching_comic = ComicBook.where(title: comic_book, publisher: comic_book, issue_number: comic_book).all
-  matching_comic.each do |comic|
+  matching_comics = ComicBook.where(name: params[:title][:publisher][:issue_number]).all
+  matching_comics.each do |comic|
   comic.destroy
   puts "Comic sucessfully removed!"
   puts ACTIONS

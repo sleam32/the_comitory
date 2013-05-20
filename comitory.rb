@@ -10,27 +10,35 @@ puts "This is an interactive Comic Book collection to help organize your comic s
 puts ComitoryController::ACTIONS
 
 
-
 command = ARGV[0]
+comic_name = ARGV[1]
 
-params = {command: ARGV[0], comic:{ name: ARGV[1] }}
+# params = {command: ARGV[0], comic:{name: ARGV[1]}}
+params = { command: command, comic: { name: comic_name } }
 controller = ComitoryController.new(params)
+routes = { "add" => :add_comic, "list" => :list_comic, "remove" => :remove_comic, "quit" => :quit_all }
 
 # router:
-if command == "add"
-	controller.add_comic
-end
+if route = routes[command]
+  controller.send route
+else
+  unless command == "help"
+    puts "Comitory does not (yet?) support the '#{command}' command.\n\n"
+  end
+# if command == "add"
+# 	controller.add_comic
+# end
 
-if command == "list"
-	controller.list_comic
-end
+# if command == "list"
+# 	controller.list_comic
+# end
 
-if command == "remove"
-	conroller.remove_comic
-end
+# if command == "remove"
+# 	controller.remove_comic
+# end
 
-if command == "quit"
-	controller.quit_all
+# if command == "quit"
+# 	controller.quit_all
 end
 
 
