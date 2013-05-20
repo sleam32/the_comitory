@@ -1,6 +1,8 @@
 require 'active_record'
 
 class ComicBook < ActiveRecord::Base
-	# Allows access to the information stored in the Database
-	# attr_reader :title, :publisher, :issue_number
+	# creating associations between Models
+	validates :title, :presence => true
+	validates :publisher, :presence => true
+	validates :issue_number, :presence => true
 end

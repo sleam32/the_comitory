@@ -2,71 +2,55 @@
 require_relative 'bootstrap_ar'
 
 
-ACTIONS = "Actions: list, add, remove, find, quit"
+ACTIONS = "Actions: list, add, remove, quit"
 clear_screen = "\e[H\e[2J"
-
 
 	puts "\n\n<<< Welcome to The ComiTory >>>\n\n"
 	puts "This is an interactive Comic Book collection to help organize your comic stash!\n\n"
 
 	puts ACTIONS
 
-command = ARGV[0]
+   command = ARGV[0]
 
 if command == "add"
 	puts clear_screen
-	i = 1
-	until i > 5
-	puts "Want to add a comic to your collection? [y/n]:"
-	response = $stdin.gets.chomp
-	case response
-	when 'y'
-	puts "Please enter a Title:"
-	response = $stdin.gets.chomp
-	puts "Please enter a Publisher:"
-	response = $stdin.gets.chomp
-	puts "Please enter an Issue Number:"
-	response = $stdin.gets.chomp
-	puts "New Comic Added!"
-	response = $stdin.gets.chomp
-	i += 1
-	when 'n'
-		puts "Ok, what would you like to do?"
-		puts ACTIONS
-	# puts "Please enter Publisher:"
-	# publ = "Please enter Publisher".chomp
-	# puts "Please enter Issue Number:"
-	# issue_num = "Please enter Issue Number".chomp
-	# ComicBook.create(title: title, publisher: publ, issue_number: issue_num)
-	# on final enter, clear the screen
-	# puts clear_screen
-	# puts "Comic Added!"
-	# puts ACTIONS
-end
+	puts "Add Your Comic!"
+	comic_book = $stdin.gets.chomp
+	comic = ComicBook.create(title: comic_book, publisher: comic_book, issue_number: comic_book)
+	if comic.save
+		puts "Comic Added!"
+	else
+		puts "The force field has been broken. Please try re-adding this comic."
+end 
+
 if command == "list"
-	puts "Your comic collection!"
+	puts clear_screen
+	puts "View Comic Collection"
 	comics = ComicBook.all
 	comics.each_with_index do |comicBook, i|
-	puts "{i + 1}. #{ComicBook.title.publ.issue_num}"
+	unless comics.empty?
+		puts "{i + 1}. #{ComicBook.title}"
+else
+	puts "No comics have been added!"
 	puts ACTIONS
-	end
-elsif command == "remove"
-	comic_book = ARGV[1]
+end
+
+if command == "remove"
+	puts clear_screen
+	puts "Enter a comic you want to remove."
 	matching_comic = ComicBook.where(title: title, publisher: publ, issue_number: issue_num).all
 	matching_comic.each do |comic|
 	comic.destroy
+	puts "Comic sucessfully removed!"
 	puts ACTIONS
-	end
-elsif command == "find"
-	puts "Find a Comic\n"
-	puts "Find using a key phrase to search the comic collection list.\n"
-	puts "Examples: find Superman, find Super\n"
-	puts ACTIONS
-elsif command == "quit"
+end
+
+if command == "quit"
 	puts "\n\n<<< Goodbye! Keep Calm and Collect On! >>>\n\n"
 end
 end
 end
-
+end
+end
 
 
