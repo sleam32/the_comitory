@@ -38,7 +38,7 @@ end
 if command == "remove"
 	puts clear_screen
 	puts "Enter a comic you want to remove."
-	matching_comic = ComicBook.where(title: title, publisher: publ, issue_number: issue_num).all
+	matching_comic = ComicBook.where(title: comic_book, publisher: comic_book, issue_number: comic_book).all
 	matching_comic.each do |comic|
 	comic.destroy
 	puts "Comic sucessfully removed!"
