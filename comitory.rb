@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 require_relative 'bootstrap_ar'
+database = ENV['COMITORY_ENV'] || 'development'
+connect_to database 
 
 
 ACTIONS = "Actions: list, add, remove, quit"
