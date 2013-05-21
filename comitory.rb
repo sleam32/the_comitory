@@ -17,20 +17,19 @@ params = {command: ARGV[0], comic:{ comic_name: ARGV[1] }}
 controller = ComitoryController.new(params)
 
 if command == "add"
-	controller.add_comic
+  controller.add_comic
 end
 
 if command == "list"
-	controller.list_comic
+  controller.list_comic
 end
 
 if command == "remove"
-	controller.remove_comic
+  controller.remove_comic
 end
 
 if command == "quit"
-	controller.quit_all
+  controller.quit_all
 end
-
 
 

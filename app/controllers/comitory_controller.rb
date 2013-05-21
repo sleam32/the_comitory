@@ -42,7 +42,7 @@ class ComitoryController
     puts clear_screen
     puts "Enter a comic you want to remove."
     comic_book = $stdin.gets.chomp
-    matching_comics = ComicBook.where(name: params[:title][:publisher][:issue_number]).all
+    matching_comics = ComicBook.where(title: comic_book).all
     matching_comics.each do |comic|
       if comic.destroy
         puts "Holy haberdashery, Batman!! Comic sucessfully removed!"
