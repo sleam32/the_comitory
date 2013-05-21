@@ -13,32 +13,23 @@ puts ComitoryController::ACTIONS
 command = ARGV[0]
 comic_name = ARGV[1]
 
-# params = {command: ARGV[0], comic:{name: ARGV[1]}}
-params = { command: command, comic: { name: comic_name } }
+params = {command: ARGV[0], comic:{ comic_name: ARGV[1] }}
 controller = ComitoryController.new(params)
-routes = { "add" => :add_comic, "list" => :list_comic, "remove" => :remove_comic, "quit" => :quit_all }
 
-# router:
-if route = routes[command]
-  controller.send route
-else
-  unless command == "help"
-    puts "Comitory does not (yet?) support the '#{command}' command.\n\n"
-  end
-# if command == "add"
-# 	controller.add_comic
-# end
+if command == "add"
+	controller.add_comic
+end
 
-# if command == "list"
-# 	controller.list_comic
-# end
+if command == "list"
+	controller.list_comic
+end
 
-# if command == "remove"
-# 	controller.remove_comic
-# end
+if command == "remove"
+	controller.remove_comic
+end
 
-# if command == "quit"
-# 	controller.quit_all
+if command == "quit"
+	controller.quit_all
 end
 
 

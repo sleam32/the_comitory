@@ -1,5 +1,5 @@
 class ComitoryController
-  attr_accessor :params, :remove_comic, :quit_all, :add_comic, :list_comic
+  attr_accessor :params
   ACTIONS = "Actions: list, add, remove, quit"
 
   def initialize params
@@ -13,10 +13,10 @@ class ComitoryController
   comic_book = $stdin.gets.chomp
     comic = ComicBook.create(title: comic_book, publisher: comic_book, issue_number: comic_book)
   if comic.save
-    puts "Comic Added!"
+    puts "Holy Jack in the box! Comic Added!"
     puts ACTIONS
   else
-    puts "The force field has been broken. Please try re-adding this comic."
+    puts "I'm through talking. Get out of my cave. Please try re-adding this comic."
   end
 end
 
@@ -30,7 +30,7 @@ def list_comic
     unless comics.empty?
     puts "#{i+1}. #{comic.title}"
 else
-  puts "No comics have been added!"
+  puts "Puny humans. No comics have been added!"
   puts ACTIONS
   end
 end
@@ -40,17 +40,21 @@ def remove_comic
   clear_screen = "\e[H\e[2J"
   puts clear_screen
   puts "Enter a comic you want to remove."
+  comic_book = $stdin.gets.chomp
   matching_comics = ComicBook.where(name: params[:title][:publisher][:issue_number]).all
   matching_comics.each do |comic|
-  comic.destroy
-  puts "Comic sucessfully removed!"
+  if comic.destroy
+    puts "Holy haberdashery, Batman!! Comic sucessfully removed!"
+  else
+  puts "Hulk smash!! Removal failed. Try again."
   puts ACTIONS
   end
 end
 
 
 def quit_all
-    puts "\n\n<<< Goodbye! Keep Calm and Collect On! >>>\n\n"
+    puts "\n\n<<< With great power comes great responsibilty. Goodbye! >>>\n\n"
   end
+end
 end
 end
