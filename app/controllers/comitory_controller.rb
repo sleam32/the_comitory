@@ -9,9 +9,13 @@ class ComitoryController
   def add_comic
     clear_screen = "\e[H\e[2J"
     puts clear_screen
-    puts "Type a title, publisher and issue number\nthen press Enter."
+    puts "Add a title."
     title = $stdin.gets.chomp
-    comic = ComicBook.create(title: title, publisher: title, issue_number: title)
+    puts "Add a publisher."
+    publisher = $stdin.gets.chomp
+    puts "Add an issue number."
+    issue_number = $stdin.gets.chomp
+    comic = ComicBook.create(title: title, publisher: publisher, issue_number: issue_number)
     if comic.save
       puts "Holy Jack in the box! Comic Added!"
       puts ACTIONS
@@ -28,7 +32,7 @@ class ComitoryController
     comics = ComicBook.all
     comics.each_with_index do |comic, i|
       unless comics.empty?
-        puts "#{i+1}. #{comic.title}"
+        puts "#{i+1}. #{comic.title.ljust(40)} | #{comic.publisher.ljust(40)} | #{comic.issue_number.to_s.ljust(10)}"
       else
         puts "Puny humans. No comics have been added!"
         puts ACTIONS
