@@ -4,6 +4,7 @@ require_relative 'bootstrap_ar'
 database = ENV['COMITORY_ENV'] || 'development'
 connect_to database
 
+
 puts "\n\n<<< Welcome to The ComiTory >>>\n\n"
 puts "This is an interactive Comic Book collection to help organize your comic stash!\n\n"
 

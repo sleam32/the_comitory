@@ -1,11 +1,19 @@
 require 'test_helper'
 
-# class TestRemovingComic < Test::Unit::TestCase
+class TestRemovingComic < Test::Unit::TestCase
 # 	def test_remove_only_comic
 # 		Comicbook.create (title: 'superman')
 # 		`ruby the_comitory remove 'superman'`
 # 		assert Comicbook.all.empty?
 # 	end
+
+# def test_remove_multiple_comics
+#   ComicBook.create(title: 'foo')
+#   ComicBook.create(title: 'bar')
+#   ComicBook.create(title: 'baz')
+#   `ruby comitory.rb remove 'foo', 'bar', 'baz'`
+#   assert ComicBook.where(title: 'foo', 'bar', 'baz').empty?
+# end
 
 # 	def test_remove_particular_comic
 # 		Comicbook.create(title: 'a')
@@ -27,6 +35,6 @@ require 'test_helper'
 # 		# assert Comicbook.where(title: 'b').all.empty?
 # 		assert_equal 2, Comicbook.count
 # 	end
-# end
+end
 
 

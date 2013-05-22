@@ -9,13 +9,9 @@ class ComitoryController
   def add_comic
     clear_screen = "\e[H\e[2J"
     puts clear_screen
-    puts "Add a title"
+    puts "Type a title, publisher and issue number\nthen press Enter."
     title = $stdin.gets.chomp
-    puts "Add a publisher"
-    publisher = $stdin.gets.chomp
-    puts "Add an issue number"
-    issue_number = $stdin.gets.chomp
-    comic = ComicBook.create(title: title, publisher: publisher, issue_number: issue_number)
+    comic = ComicBook.create(title: title, publisher: title, issue_number: title)
     if comic.save
       puts "Holy Jack in the box! Comic Added!"
       puts ACTIONS
