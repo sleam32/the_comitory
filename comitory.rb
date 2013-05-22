@@ -14,7 +14,7 @@ _______  __   __  _______    _______  _______  __   __  ___   _______  _______  
 |___|  |__| |__||_______|  |_______||_______||_|   |_||___|   |___|  |_______||___|  |_|  |___|
 EOS
 puts "\n\n<<< Welcome to The ComiTory, an interactive Comic Book collection to organize your comic stash! >>>\n\n"
-puts "To get started, choose an action: List, Add, Remove, Quit"
+puts "To get started, choose an action: Add, List, Remove, Quit"
 
 ComitoryController::ACTIONS
 
