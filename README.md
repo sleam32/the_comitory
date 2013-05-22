@@ -9,6 +9,7 @@ Project Status/TODO
 All of the main features "Add", "List", "Remove" and "Quit" are working. There are a few glitches that should be addressed:
 
 1.The formatting of the list option's output gets ganky after numbers reach the double digits.
+
 2.Remove option only functions based upon the title argument, instead of the title publisher and issue number arguments all together. Remove needs to be much more specific.
 
 Features
