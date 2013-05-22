@@ -14,7 +14,7 @@ puts ComitoryController::ACTIONS
 command = ARGV[0]
 comic_name = ARGV[1]
 
-params = {command: ARGV[0], comic:{ comic_name: ARGV[1] }}
+params = { command: ARGV[0], comic:{ comic_name: ARGV[1] } }
 controller = ComitoryController.new(params)
 
 if command == "add"
