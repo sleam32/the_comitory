@@ -3,8 +3,8 @@ NSS-the_comitory-CLI
 Purpose
 ============
  
-+[![Build Status](https://travis-ci.org/elizabrock/NSS-futureperfect-CLI.png)](https://travis-ci.org/elizabrock/NSS-futureperfect-CLI)
-+
+[![Build Status](https://travis-ci.org/elizabrock/NSS-futureperfect-CLI.png)](https://travis-ci.org/elizabrock/NSS-futureperfect-CLI)
+
    2. `Project.destroy_all` is not the ideal solution for test prep
    4. We should be using assert\_includes
    4. We should be using assert\_output 
