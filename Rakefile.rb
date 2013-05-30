@@ -25,7 +25,7 @@ db_namespace = namespace :db do
     task :prepare do
       connect_to 'test'
       file = ENV['SCHEMA'] || "db/schema.rb"
-      if FILE.exists?(file)
+      if File.exists?(file)
         load(file)
       else
         abort %{#{file} doesn't exist yet. Run `rake db:migrate` to create it.}
@@ -39,7 +39,7 @@ db_namespace = namespace :db do
     ActiveRecord::Migrator.rollback(ActiveRecord::Migrator.migrations_paths, step)
     db_namespace["schema:dump"].invoke
   end
-  
+
   namespace :schema do
     desc 'Create a db/schema.rb file that can be portably used against any DB supported by AR'
     task :dump do
