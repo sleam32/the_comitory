@@ -15,8 +15,8 @@ class TestAddingComicbook < Test::Unit::TestCase
   end
 
   def test_duplicate_names_outputs_error_message
-  	ComicBook.create(title: 'Batman')
-  	results = `ruby comitory.rb add Batman`
-  	assert_equal results.include?('Name must be unique'), "Actually was '#{results}'"
+    ComicBook.create(title: 'Batman')
+    results = `ruby comitory.rb add Batman`
+    assert_equal results.include?('Name must be unique'), "Actually was '#{results}'"
   end
 end

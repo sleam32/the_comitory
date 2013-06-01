@@ -22,7 +22,6 @@ class TestRemovingComic < Test::Unit::TestCase
 		assert !Comicbook.where(title: 'b').all.empty?
 		`ruby the_comitory remove b`
 		assert Comicbook.where(title: 'b').all.empty?
-		#assert_equal 2, Comicbook.count
 	end
 
 	def test_remove_particular_comic_doesnt_remove_all
@@ -32,7 +31,6 @@ class TestRemovingComic < Test::Unit::TestCase
 		Comicbook.create(title: 'c')
 		assert !Comicbook.where(title: 'b').all.empty?
 		`ruby the_comitory remove b`
-		# assert Comicbook.where(title: 'b').all.empty?
 		assert_equal 2, Comicbook.count
 	end
 end
