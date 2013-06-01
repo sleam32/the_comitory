@@ -8,14 +8,14 @@ class TestListingComics < Test::Unit::TestCase
 		assert_equal "", actual
 	end
 
-# 	def test_listing_multiple_comics
-# 		ComicBook.create(title: 'foo')
-# 		ComicBook.create(title: 'bar')
-# 		actual = `ruby the_comitory list`
-# 		expected = <<EOS
-# 		1. foo
-# 		2. bar
-# EOS
-#     	assert_equal expected, actual
-#   	end
+	def test_listing_multiple_comics
+		ComicBook.create(title: 'foo')
+		ComicBook.create(title: 'bar')
+		actual = `ruby the_comitory list`
+		expected = <<EOS
+		1. foo
+		2. bar
+		EOS
+		assert_equal expected, actual
+	end
 end
