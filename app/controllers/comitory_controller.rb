@@ -32,7 +32,8 @@ class ComitoryController
     comics = ComicBook.all
     comics.each_with_index do |comic, i|
       unless comics.empty?
-        puts "#{i+1}. #{comic.title.ljust(40)} | #{comic.publisher.ljust(40)} | #{comic.issue_number.to_s.ljust(10)}"
+        puts "#{i+1}. #{comic.title.ljust(40)} | #{comic.publisher.ljust(40)}" +
+        " | #{comic.issue_number.to_s.ljust(10)}"
       else
         puts "Puny humans. No comics have been added!"
         puts ACTIONS
